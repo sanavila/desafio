@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
-    <BreadCrumb class="grid-crumb"/>
-    <DateDescription class="grid"/>
+    <BreadCrumb class="grid-bread"/>
     <TabsUserConfig class="grid-tabs"/>
     <SidebarMenu class="sidebar-menu"/>
   </div>
@@ -11,7 +10,6 @@
 // @ is an alias to /src
 import SidebarMenu from '@/components/SidebarMenu.vue';
 import BreadCrumb from '@/components/BreadCrumb.vue';
-import DateDescription from '@/components/DateDescription.vue';
 import TabsUserConfig from '@/components/TabsUserConfig.vue';
 
 export default {
@@ -19,29 +17,29 @@ export default {
   components: {
     SidebarMenu,
     BreadCrumb,
-    DateDescription,
     TabsUserConfig,
   },
 };
 </script>
 <style lang="scss">
+
 .wrapper {
   display: grid;
-  grid-template-columns: 11fr 1fr;
-  grid-template-rows: 15vh 85vh;
+  grid-template-columns: 85px 1fr;
+  grid-template-rows: 1fr auto;
+}
+
+.grid-bread {
+  grid-row: 1;
+  grid-template-rows: 15vh;
 }
 
 .sidebar-menu {
-grid-column-start: 1;
-grid-row: 1;
-}
-
-.grid-crumb {
-  grid-column-start: 1;
-  grid-row: 1;
+grid-column: 1;
+grid-row: 1/3;
 }
 
 .grid-tabs {
-  grid-row: 2;
+  grid-row-start: 2;
 }
 </style>
