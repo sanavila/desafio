@@ -1,19 +1,34 @@
 <template>
-    <section>
-        <b-tabs v-model="activeTab" :multiline="multiline" :animated="false">
-            <template v-for="tab in baseTabs">
-                <b-tab-item
-                    v-if="tab.displayed"
-                    :key="tab.id"
-                    :value="tab.id"
-                    :label="tab.label">
-                    <h2 class="has-text-weight-semibold">Informações pessoais</h2>
-                    <h3>{{ tab.description }}</h3>
-                    <component :is="tab.content"></component>
-                </b-tab-item>
-            </template>
-        </b-tabs>
-    </section>
+  <section>
+    <div class="is-flex is-align-items-center p-4">
+      <b-button class="pl-1"
+        icon-left="arrow-left-thin"
+        type="is-ghost"
+        size="is-medium">
+      </b-button>
+      <h2 class="pl-2">Configurações de perfil</h2>
+    </div>
+    <b-tabs v-model="activeTab" :multiline="multiline" :animated="false" class="custom-p-less">
+      <template v-for="tab in baseTabs">
+        <b-tab-item v-if="tab.displayed" :key="tab.id" :value="tab.id" :label="tab.label">
+          <div class="columns">
+            <div class="column is-6 py-5 has-text-left">
+              <h2 class="has-text-weight-semibold">
+                Informações pessoais
+              </h2>
+              <h3>{{ tab.description }}</h3>
+            </div>
+            <div class="column is-1 is-offset-5 is-align-self-center">
+              <b-button type="is-info">
+                Editar
+              </b-button>
+            </div>
+          </div>
+          <component :is="tab.content"></component>
+        </b-tab-item>
+      </template>
+    </b-tabs>
+  </section>
 </template>
 
 <script>
@@ -65,3 +80,8 @@ export default {
   },
 };
 </script>
+<style>
+.fixed-information {
+  text-align: left;
+}
+</style>

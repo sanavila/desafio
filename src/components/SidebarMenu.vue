@@ -7,8 +7,10 @@
         :expand-on-hover="expandOnHover"
         :reduce="reduce"
         :delay="expandWithDelay ? 500 : null"
-        type="is-light" open>
-        <div class="p-1">
+        type="is-light" open
+        class="custom-sidebar"
+        >
+        <div class="p-1 custom-h100">
           <div class="block">
           <ProfileUser :reduce="reduce"/>
           </div>
@@ -57,16 +59,21 @@ export default {
       expandOnHover: false,
       expandWithDelay: false,
       mobile: 'reduce',
-      reduce: false,
+      reduce: true,
     };
   },
 };
 </script>
-<style lang="scss">
+<style scoped>
 .hr {
   width: 100%;
   border-bottom: 1px solid #dfdfdf;
 }
+.custom-sidebar {
+  z-index: 99;
+}
+</style>
+<style lang="scss">
 .reduce-button {
   position: absolute;
   background-color: red;

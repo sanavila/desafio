@@ -1,3 +1,18 @@
 .flex-1 {
     flex: 1;
 }
+.custom-w100 > .select {
+    width: 100%;
+    select {
+        width: 100%;
+    }
+}
+.is-align-self-center {
+    align-self: center;
+}
+.custom-p-less > .tabs {
+    padding: 0;
+}
+.custom-h100 {
+    height: 100vh;
+}

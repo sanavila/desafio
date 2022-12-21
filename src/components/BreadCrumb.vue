@@ -7,6 +7,7 @@
       <b-breadcrumb-item href="/documentation/breadcrumb" active>Perfil</b-breadcrumb-item>
     </b-breadcrumb>
     <DateDescription />
+    <div class="hr"></div>
   </section>
 </template>
 
@@ -18,3 +19,9 @@ export default {
   components: { DateDescription },
 };
 </script>
+<style scoped>
+.hr {
+  width: 100%;
+  border-bottom: 1px solid #dfdfdf;
+}
+</style>
