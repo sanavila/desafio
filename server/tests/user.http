@@ -1,0 +1,26 @@
+### Create user
+PUT http://localhost:8000/user/create
+Content-Type: application/json
+
+{
+    "username": "Rute",
+    "password": "124d45"
+}
+
+
+### Search user 1
+GET http://localhost:8000/user/1
+
+
+### Edit user
+PATCH http://localhost:8000/user/1/edit
+content-type: application/json
+
+{
+    "username": "Rute",
+    "password": "124d45"
+}
+
+
+### Delete user 1
+DELETE http://localhost:8000/user/1/delete
