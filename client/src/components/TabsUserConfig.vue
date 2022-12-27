@@ -11,7 +11,7 @@
     <b-tabs v-model="activeTab" :multiline="multiline" :animated="false" class="custom-p-less">
       <template v-for="tab in baseTabs">
         <b-tab-item v-if="tab.displayed" :key="tab.id" :value="tab.id" :label="tab.label">
-          <div class="columns">
+          <div class="columns py-5 m-0">
             <div class="column is-6 has-text-left">
               <h2 class="has-text-weight-semibold">
                 Informações pessoais

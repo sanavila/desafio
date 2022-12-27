@@ -7,7 +7,6 @@
         <b-input value="Kevin Garvey"></b-input>
       </b-field>
     </div>
-
     <div class="columns py-5 mb-0 is-align-items-center hr">
       <span class="column is-3 has-text-left">Nascimento / Sexo</span>
       <b-field class="column is-3 mb-0">
