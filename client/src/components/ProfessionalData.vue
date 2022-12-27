@@ -1,37 +1,47 @@
 <template>
-    <section>
-        <b-field label="Name" horizontal>
-            <b-input v-model="name"></b-input>
-        </b-field>
-
-        <b-field label="Email"
-            type="is-danger"
-            message="This email is invalid"
-            horizontal>
-            <b-input type="email"
-                value="john@"
-                maxlength="30">
-            </b-input>
-        </b-field>
-
-        <b-field label="Username"
-            type="is-success"
-            message="This username is available"
-            horizontal>
-            <b-input value="johnsilver" maxlength="30"></b-input>
-        </b-field>
-
-        <b-field label="Password" horizontal>
-            <b-input type="password"
-                value="iwantmytreasure"
-                password-reveal>
-            </b-input>
-        </b-field>
-
-        <b-field label="Message" horizontal>
-            <b-input maxlength="200" type="textarea"></b-input>
-        </b-field>
-    </section>
+  <section>
+    <div class="columns py-5 hr">
+      <span class="column is-3 has-text-left has-text-weight-semibold">
+        Conselho / Estado conselho
+      </span>
+      <b-select class="column is-3" placeholder="Seleceione o conselho" expanded>
+        <option value="flint">Flint</option>
+      </b-select>
+      <b-select class="column is-3" placeholder="Seleceione o estado" expanded>
+        <option value="flint">Flint</option>
+      </b-select>
+    </div>
+    <div class="columns py-5 hr">
+      <span class="column is-3 has-text-left has-text-weight-semibold">Número do conselho</span>
+      <b-field class="column is-6">
+        <b-input></b-input>
+      </b-field>
+    </div>
+    <div class="columns py-5 hr">
+      <span class="column is-3 has-text-left has-text-weight-semibold">
+        Especialidade / RQE
+      </span>
+      <b-select class="column is-3" placeholder="Seleceione a especialidade" expanded>
+        <option value="flint">Flint</option>
+      </b-select>
+      <b-field class="column is-3">
+        <b-input></b-input>
+      </b-field>
+    </div>
+    <div class="columns py-5 hr">
+      <span class="column is-3 has-text-left has-text-weight-semibold">
+        ID user / Sincronização MEMED
+      </span>
+      <b-field class="column is-3">
+        <b-input></b-input>
+      </b-field>
+      <b-switch
+        class="column is-3"
+        v-model="isSwitched">
+        {{ isSwitched ? "Ativo" : "Desativado" }}
+      </b-switch>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -39,8 +49,14 @@ export default {
   name: 'ProfessionalData',
   data() {
     return {
-      name: 'John Silver',
+      isSwitched: false,
+      isSwitchedCustom: 'Yes',
     };
   },
 };
 </script>
+<style>
+.hr {
+  border-top: 1px solid #dfdfdf;
+}
+</style>
