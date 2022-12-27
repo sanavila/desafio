@@ -12,15 +12,15 @@
       <template v-for="tab in baseTabs">
         <b-tab-item v-if="tab.displayed" :key="tab.id" :value="tab.id" :label="tab.label">
           <div class="columns">
-            <div class="column is-6 py-5 has-text-left">
+            <div class="column is-6 has-text-left">
               <h2 class="has-text-weight-semibold">
                 Informações pessoais
               </h2>
               <h3>{{ tab.description }}</h3>
             </div>
-            <div class="column is-1 is-offset-5 is-align-self-center">
+            <div class="column has-text-right">
               <b-button type="is-info">
-                Editar
+                {{ tab.button_name }}
               </b-button>
             </div>
           </div>
@@ -53,6 +53,7 @@ export default {
           content: GeneralData,
           displayed: true,
           description: 'Atualize suas fotos e dados pessoais aqui',
+          button_name: 'Editar',
         },
         {
           id: 'address',
@@ -60,6 +61,7 @@ export default {
           content: AddressData,
           displayed: true,
           description: 'Atualize seu endereço aqui',
+          button_name: 'Editar',
         },
         {
           id: 'password',
@@ -67,6 +69,7 @@ export default {
           content: PasswordData,
           displayed: true,
           description: 'Atualize sua senha aqui',
+          button_name: 'Mudar senha',
         },
         {
           id: 'professionalData',
@@ -74,6 +77,7 @@ export default {
           content: ProfessionalData,
           displayed: true,
           description: 'Atualize seus dados profissionais aqui',
+          button_name: 'Editar',
         },
       ];
     },
