@@ -1,6 +1,11 @@
 <template>
   <div class="sidebar-page">
-    <section class="sidebar-layout is-flex sidebar-editor">
+    <section class="sidebar-layout sidebar-editor">
+      <b-tag class="reduce-button" type="is-blue"
+        rounded
+        @click="reduce = !reduce">
+        <b-icon size="is-small" :icon="reduce ? 'chevron-right' : 'chevron-left'"/>
+      </b-tag>
       <b-sidebar
         position="static"
         :mobile="mobile"
@@ -14,31 +19,52 @@
           <div class="block">
           <ProfileUser :reduce="reduce"/>
           </div>
-          <b-tag class="reduce-button"
-            rounded
-            @click="reduce = !reduce">
-            <b-icon :icon="reduce ? 'chevron-right' : 'chevron-left'" />
-          </b-tag>
-          <b-menu class="is-custom-mobile">
-            <div class="hr"></div>
+          <b-menu class="is-custom-mobile" :class="{hr: reduce, 'custom-text-left': !reduce}">
             <b-menu-list :label="reduce ? '' : 'Ferramentas'">
-              <b-menu-item icon="home-variant-outline" label="Inicio"></b-menu-item>
+              <b-menu-item icon="home-variant-outline"
+                label="Inicio"
+                class="mb-2
+                mt-6">
+              </b-menu-item>
               <b-menu-item
                 icon="card-account-details-outline"
-                label="Consultório">
+                label="Consultório"
+                class="mb-2">
               </b-menu-item>
-              <b-menu-item icon="home-city-outline" label="Clinicas"></b-menu-item>
+              <b-menu-item
+                icon="home-city-outline"
+                label="Clinicas"
+                class="mb-2">
+              </b-menu-item>
               <b-menu-item
                 icon="monitor"
-                label="Painel de atendimentos">
+                label="Painel de atendimentos"
+                class="mb-6">
             </b-menu-item>
           </b-menu-list>
+
             <div class="hr"></div>
             <b-menu-list :label="reduce ? '' : 'Outros'">
-              <b-menu-item icon="bell-outline" label="Notificações"></b-menu-item>
-              <b-menu-item icon="help-circle-outline" label="Central de ajuda"></b-menu-item>
-              <b-menu-item icon="cog-outline" label="Configurações"></b-menu-item>
-              <b-menu-item icon="arrow-left-thin" label="Sair  "></b-menu-item>
+              <b-menu-item
+                icon="bell-outline"
+                label="Notificações"
+                class="mb-2 mt-6">
+              </b-menu-item>
+              <b-menu-item
+                icon="help-circle-outline"
+                label="Central de ajuda"
+                class="mb-2">
+              </b-menu-item>
+              <b-menu-item
+                icon="cog-outline"
+                label="Configurações"
+                class="mb-2">
+              </b-menu-item>
+              <b-menu-item
+                icon="arrow-left-thin"
+                label="Sair"
+                class="mb-2">
+              </b-menu-item>
             </b-menu-list>
           </b-menu>
         </div>
@@ -66,20 +92,29 @@ export default {
 </script>
 <style scoped>
 .hr {
-  width: 100%;
-  border-bottom: 1px solid #dfdfdf;
+  border-top: 1px solid #dfdfdf;
 }
 .custom-sidebar {
   z-index: 99;
 }
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 50px 20px auto;
+}
 </style>
 <style lang="scss">
 .reduce-button {
-  position: absolute;
-  background-color: red;
+  position: relative;
+  grid-column: 2;
+  grid-row: 2;
+  z-index: 100;
+  margin-left: -12px;
 }
 @media screen and (max-width: 1023px) {
     .b-sidebar {
+      grid-row: 1/3;
+      grid-column: 1;
         .sidebar-content {
             &.is-mini-mobile {
                 &:not(.is-mini-expand),

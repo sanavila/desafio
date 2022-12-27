@@ -9,6 +9,8 @@ $primary-dark: findDarkColor($primary);
 $primary-invert: findColorInvert($primary);
 $twitter: #4099FF;
 $twitter-invert: findColorInvert($twitter);
+$blue: #01a7cc;
+$blue-invert: findColorInvert($blue);
 
 // Lists and maps
 $custom-colors: null !default;
@@ -28,6 +30,10 @@ $colors: mergeColorMaps(
         "light": (
             $light,
             $light-invert,
+        ),
+        "blue": (
+            $blue,
+            $blue-invert,
         ),
         "dark": (
             $dark,

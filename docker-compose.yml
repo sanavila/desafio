@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  desafio_front:
+    image: node:14
+    volumes:
+      - ./client:/usr/src/app_front
+      - ./client/node_modules:/usr/src/app_front/node_modules
+    working_dir: /usr/src/app_front
+    user: 1000:1000
+    command: sh -c "yarn && yarn serve"
+    ports:
+      - 8080:8080
+
+  desafio_back:
+    image: node:14
+    volumes:
+      - ./server:/usr/src/app_back
+    working_dir: /usr/src/app_back
+    user: 1000:1000
+    command: sh -c "yarn && yarn start"
+    ports:
+      - 8000:8000

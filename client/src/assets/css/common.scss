@@ -16,3 +16,8 @@
 .custom-h100 {
     height: 100vh;
 }
+.custom-text-left { 
+    li > a, p {
+        text-align: left;
+    } 
+}
