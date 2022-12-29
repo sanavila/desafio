@@ -42,7 +42,6 @@
                 class="mb-6">
             </b-menu-item>
           </b-menu-list>
-
             <div class="hr"></div>
             <b-menu-list :label="reduce ? '' : 'Outros'">
               <b-menu-item
@@ -95,12 +94,15 @@ export default {
   border-top: 1px solid #dfdfdf;
 }
 .custom-sidebar {
+  display: flex;
   z-index: 99;
+  grid-row: 1/4;
 }
 .sidebar-layout {
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: 50px 20px auto;
+  grid-template-rows: 86px 20px auto;
+  height: 100%;
 }
 </style>
 <style lang="scss">

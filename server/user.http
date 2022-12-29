@@ -1,0 +1,15 @@
+PUT http://localhost:8000/user/create
+content-type: application/json
+Accept: application/json
+
+{
+  "name": "Rute",
+  "birth": "20/02/1998",
+  "genre": "female",
+  "image": "image",
+  "email": "rute.leone@hotmail.com",
+  "phone": "85994086062", 
+  "rg": "3458965489", 
+  "cpf":"61624757359", 
+  "cns": "0000000"
+}

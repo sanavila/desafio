@@ -1,13 +1,24 @@
+import db from '../utils/sqlite3.js';
+import { v4 as uuidv4 } from 'uuid';
+
 export function createUser(req, res) {
-  const { username, password } = req.body;
+  const { name, birth, genre, image, email, phone, rg, cpf, cns } = req.body;
   try {
-    if (!username || !password) {
+    const error = 'name, birth, genre, image, email, phone, rg, cpf, cns'.split(', ')
+    .find((item) => !req.body[item] );
+
+    if (error) {
       return res.status(400).json({
-        message: "Dados fora do padrão"
+        message: "Dados fora do padrão",
+        error
       });
     }
-
     // salvar dados ...
+    const id = uuidv4();
+    const stmt = db.prepare(`INSERT INTO user VALUES (${Array(10).fill('?').join(',')})`);
+    stmt.run(id, name, birth, genre, image, email, phone, rg, cpf, cns);
+    stmt.finalize();
+
     return res.status(201).json({
       message: "Usuário cadastrado"
     });

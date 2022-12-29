@@ -26,7 +26,7 @@ export default {
 .wrapper {
   display: grid;
   grid-template-columns: 85px 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 86px auto;
 }
 
 .grid-bread {
